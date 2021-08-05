@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const countriesRouter = Router();
-const {Country} =require('../db');
+const {Country,Activity} =require('../db');
 const { Op } = require("sequelize");
 
 countriesRouter.get('/countries', async function(req,res){
@@ -9,7 +9,8 @@ countriesRouter.get('/countries', async function(req,res){
         let countries = await Country.findAll({
             where:{
                 Name:{[Op.iLike]:`%${name}%`}
-            }
+            },
+           
         });
         if(countries.length===0){
             res.status(404).send("No Se Encontro Coincidencia")
@@ -33,7 +34,8 @@ countriesRouter.get('/countries/:id', async function(req,res){
        let countries = await Country.findAll({
         where:{
             Id:req.params.id
-        }
+        },
+        include:Activity
     });
     if(countries.length===0){
         res.status(404).json({message:'No Se Encontro Coincidencia prro'});

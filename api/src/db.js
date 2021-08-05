@@ -35,6 +35,8 @@ const { Country,Activity } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
+
+// esto hace una relacion de muchos a muchos donde la tabla intermedia se llama Country_Activity
 Country.belongsToMany(Activity,{through:'Country_Activity'});
 Activity.belongsToMany(Country,{through:'Country_Activity'});
 module.exports = {
