@@ -13,7 +13,7 @@ countriesRouter.get('/countries', async function(req,res){
            
         });
         if(countries.length===0){
-            res.status(404).send("No Se Encontro Coincidencia")
+            res.status(404).send({message:'No Se Encontro Coincidencia'})
         }else{
             res.send(countries);
         }
@@ -31,17 +31,34 @@ countriesRouter.get('/countries', async function(req,res){
 countriesRouter.get('/countries/:id', async function(req,res){
    let{id}=req.params;
    if(id){
-       let countries = await Country.findAll({
-        where:{
-            Id:req.params.id
-        },
+       let countries = await Country.findByPk(id,{
+       
         include:Activity
     });
     if(countries.length===0){
-        res.status(404).json({message:'No Se Encontro Coincidencia prro'});
+        res.status(404).json({message:'No Se Encontro Coincidencia'});
     }
     else{
-         res.send(countries);
+         let countries_activity = 
+                 {
+                    Id:countries.Id,
+                    Name:countries.Name,
+                    Img:countries.Img,
+                    Region:countries.Region,
+                    Capital:countries.Capital,
+                    Subregion:countries.Subregion,
+                    Area:countries.Area,
+                    Population:countries.Population,
+                    Activities: countries.Activities.map(elem=>{
+                        return{ id:elem.id,
+                                Name:elem.Name,
+                                Difficulty:elem.Difficulty,
+                                Duration:elem.Duration,
+                                Season:elem.Season}
+                    })
+             }
+       
+         res.send(countries_activity);
     }
    
 
