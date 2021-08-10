@@ -1,0 +1,26 @@
+
+.contenedor{
+    
+    margin: 50px;
+         
+    background-color: rgb(255, 255, 255);
+    
+    width: 300px;
+}
+.imgCountry{
+    
+    
+    width: 100%;
+    height:150px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+}
+
+.contenedorImg{
+   
+    padding: 0;
+    margin: 0;
+    background: white;
+}
+.contenedorTitulo{
+   
+}

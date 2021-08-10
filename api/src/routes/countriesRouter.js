@@ -7,10 +7,11 @@ countriesRouter.get('/countries', async function(req,res){
      let {name}=req.query;
      if(name){
         let countries = await Country.findAll({
+           
             where:{
                 Name:{[Op.iLike]:`%${name}%`}
-            },
-           
+            }
+            
         });
         if(countries.length===0){
             res.status(404).send({message:'No Se Encontro Coincidencia'})
@@ -21,7 +22,10 @@ countriesRouter.get('/countries', async function(req,res){
      }
      else{
          
-        let countries = await Country.findAll();
+        let countries = await Country.findAll({
+            include:Activity
+        });
+        
         res.send(countries);
      }
     
