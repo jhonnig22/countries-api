@@ -3,7 +3,7 @@
 import {useDispatch,useSelector} from 'react-redux';
 import { useState } from "react";
 import Filter from '../filter/Filter.js'
-
+import style from './search.module.css'
 
 export default function SearchBar(props){
 let dispatch = useDispatch();
@@ -14,51 +14,19 @@ let state = useSelector(state=>state); //estado del redux
 const [stateInput,setState]=useState({}); // estado actual del compnente para filtrar
 
 
-// function filterActivity(e){
-
-//     if(e.target.value ==='none'){
-//         setState({...stateInput,filterRegion:state.countries.data});
-//     }
-//     else{
-        
-//         setState({...stateInput,filterRegion:stateInput.filterRegion.filter(
-//         elem=>{
-//             for(let i= 0; i<elem.Activities.length;i++){
-//                 if(elem.Activities[i].Name=== e.target.value){
-                    
-//                     return true
-//                 }
-                
-//             }
-//         })});
-//         }
-//     }
-    
-    
-
-
-// function filterRegion(e){ //funcion para filtrar el estado actual y mostrarlo
-// if(e.target.value==='All'){
-//     setState({...stateInput,filterRegion:state.countries.data});
-    
-// }
-// else    
-// setState({...stateInput,filterRegion:state.countries.data.filter(elem=>elem.Region=== e.target.value)});
-// console.log(e.target.value);
-// }
-
-
 
 return(
     <div>
-        <div>
-            <form>
+        <div className={style.conteiner}>
+            <form className={style.form}>
                 <label htmlFor='search'>Search:</label>
-                <input  type='text'
+                <input  className={style.inputText}
+                        type='text'
                         placeholder='input search country'
                         id='search' 
                         name='search'/>
-                <input  type='submit'
+                <input  className={style.button}
+                        type='submit'
                         value='Search'/>        
             </form>
         </div>

@@ -4,7 +4,7 @@ import{useDispatch,useSelector} from 'react-redux';
 import {getCountryRegion,getOrder,getActivity,getActivityCountry,getPopulation,getCountris} from '../../actions/index';
 import ContenedorCars from "../contenedorCard/ContenedorCards";
 import Loading from '../loading/Loading';
-
+import style from './filter.module.css'
 export default function Filterselect(props){
     const dispatch = useDispatch(); 
      let state=useSelector(state=>state);   
@@ -75,7 +75,8 @@ export default function Filterselect(props){
 //     }
     return(
         <div>
-            <div className="contenedorFilter">
+            
+            <div className={style.contenedorFilter}>
                 <div><span>Region</span>
                     <select name='selectRegion' onChange={handlerOption}>
                         <option value="All">All</option>
@@ -107,7 +108,7 @@ export default function Filterselect(props){
 
 
                 <div>
-                    <span></span>
+                    <span>population</span>
                     <select name='population' onChange={population}>
                         <option value='none'>none</option>
                         <option valule ='population'>population</option>
@@ -115,11 +116,12 @@ export default function Filterselect(props){
                 </div>
 
 
+               
+            </div> 
                 <div>
                     <button onClick={prev}>Prev</button>
                     <button onClick={next}>Next</button>
-                </div>
-            </div>    
+                </div>   
                 <div>
                    
                     {state.loading ? <Loading></Loading>:<ContenedorCars countries={state.coutryRegion.slice(optionState.ini,optionState.fin)}/>}

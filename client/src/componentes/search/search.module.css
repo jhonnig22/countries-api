@@ -1,0 +1,38 @@
+.conteiner{
+    width: 40%;
+    
+   margin: auto;
+   padding: 5px;
+    
+}
+
+.inputText{
+   outline: none;
+    padding: 5px;
+    border: none;
+    width: 50%;
+    height: 20px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+}
+
+.form{
+    text-align: center;
+    margin: auto;
+}
+.button{
+    font-weight: bold;
+    color: white;
+    border: 0;
+    background-color: rgb(0, 192, 64);
+    border-radius: 5px;
+    margin-left: 5px;
+    height: 30px;
+    text-decoration: none;
+}
+
+.button:hover{
+   
+    color: black;
+   background-color:rgba(20, 230, 90, 0.727); 
+}

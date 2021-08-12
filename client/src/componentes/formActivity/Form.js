@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux"
 import { useState, useEffect  } from "react";
 export default  function FormActivity(props){
-let countris = useSelector(state=>state.countries.data);
+   
+let countris = useSelector(state=>state.countries);
 
 const[state,setState]=useState({Name:""});
 
@@ -21,17 +22,17 @@ return(
                
                 <div>
                     <label htmlFor="Difficulty">Difficulty:</label>
-                     <input type="number" id="Difficulty" max="5" min="1" defaultValue="1"/>
+                     <input type="number" name='difficulty' id="Difficulty" max="5" min="1" defaultValue="1"/>
                 </div>
                
                 <div>
                      <label htmlFor="Season">Season</label>
-                     <input type="text" id="Season" placeholder="Season"/>
+                     <input type="text" name='season' id="Season" placeholder="Season"/>
                 </div>
 
                 <div>
                      <label htmlFor="Duration">Duration</label>
-                     <input type="text" id="Duration" placeholder="Duration"/>
+                     <input type="text" name='duration' id="Duration" placeholder="Duration"/>
                 </div>
 
                 <div>

@@ -1,0 +1,27 @@
+
+.container{
+    
+    background-color: rgb(0, 192, 64);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.item{
+   font-weight: bold;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+     padding: 10px;
+}
+
+.item:hover{
+    color: rgb(0, 0, 0);
+    margin: auto;
+    height: 100%;
+    background-color:rgba(20, 230, 90, 0.727) ;
+    
+  border-radius: 5px;
+}
+
