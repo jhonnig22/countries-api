@@ -1,0 +1,55 @@
+.contenedor{
+   
+    width: 95%;
+    display: flex;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.contenedorCountry{
+    
+    width: 50%;
+    background-color: white;
+    border-right: 1px solid rgba(135, 135, 135, 0.7);
+    box-shadow: -4px 2px 4px 0px black;
+}
+
+.contenedorActivities{
+    background: rgba(0, 0, 0, 0.124);
+    width: 50%;
+  
+}
+
+.contenedorActivities:hover{
+ display: block;
+ 
+}
+
+.contenedorCountry:hover .contenedorActivities{
+    background-color: blue;
+   
+
+}
+
+.imgCountry{
+    height: 350px;
+    width: 100%;
+    border-bottom: 1px solid rgba(135, 135, 135, 0.7);
+}
+
+.contenedorDetalles{
+ padding: 5px;
+
+}
+
+.Name{
+    margin: 0;
+    text-align: center;
+ text-transform: uppercase;
+    
+}
+
+.title{
+    text-transform: uppercase;
+    text-align: center;
+}

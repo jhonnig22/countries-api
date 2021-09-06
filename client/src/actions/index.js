@@ -9,6 +9,9 @@ export const GET_ORDER ="GET_ORDER";
 export const GET_ACTIVITY_COUNTRY = 'GET_ACTIVITY_COUNTRY';
 export const GET_POPULATION = 'GET_POPULATION';
 export const LOADIG = 'LOADING';
+export const GET_COUNTRY_NAME = 'GET_COUNTRY_NAME';
+export const GET_COUNTRY_ID ='GET_COUNTRY_ID';
+
 export function  getCountris(){
     return function(dispatch){
 
@@ -69,4 +72,33 @@ export function getOrder(order){
         type:GET_ORDER,
         payload:order
     }
+}
+
+export function getCountryId(id){
+ return function(dispatch){
+     dispatch(loading());
+     axios.get(rutas.countryId+id)
+     .then(response =>{
+         dispatch({
+             type:GET_COUNTRY_ID,
+             payload:response.data
+         })
+     })
+ }
+}
+export function getCountryName(name){
+   return function (dispatch){
+       dispatch(loading())
+       axios.get(rutas.countryName+name)
+       .then(response =>{
+            dispatch({
+                type:GET_COUNTRY_NAME,
+                payload:response.data
+            })
+       }).catch(e=>{alert("no se encontro la ciudad")
+                        
+                        dispatch({
+                            type:'error'
+                        })})
+   }
 }

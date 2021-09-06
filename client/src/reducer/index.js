@@ -3,14 +3,18 @@ import {GET_COUNTRIS,
     GET_COUNTRY_REGION,
     GET_ORDER,
     GET_ACTIVITY_COUNTRY,
-    GET_POPULATION,LOADIG} from '../actions/index';
+    GET_POPULATION,LOADIG,
+    GET_COUNTRY_NAME,
+    GET_COUNTRY_ID} from '../actions/index';
 
 
 const initialState={
     countries:[],
     activities:[],
     coutryRegion:[],
-    loading :false
+    loading :false,
+    countryName:[],
+    countryId:[]
 };
 
 export default function rootReducer(state = initialState,action){
@@ -100,6 +104,16 @@ if(action.type === GET_ORDER){
 }
 }
 
+if(action.type === GET_COUNTRY_NAME){
+    return{...state,countryName:action.payload,loading:false}
+}
+if(action.type === 'error'){
+    return{ ... state,countryName:[], loading:false};
+}
+
+if(action.type === GET_COUNTRY_ID){
+ return {...state,countryId:action.payload};
+}
 
 return state;
 }

@@ -1,0 +1,17 @@
+.contenedorActivities{
+    padding: 5px;
+    width: 200px;
+    margin: 10px;
+    background-color: white;
+    border: 1px solid rgb(0 0 0 / 23%);
+    border-radius: 10px;
+    box-shadow: -4px 2px 4px 0px black;
+    
+}
+
+.Name{
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid rgba(94, 94, 94, 0.672);
+}
